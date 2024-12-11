@@ -22,8 +22,8 @@ void connectToHC05() {
 
 void setup() {
   Serial.begin(9600);   // Serial monitor baud rate
-  // HC05.begin(38400, SERIAL_8N1, RX_PIN, TX_PIN);  // Use HardwareSerial on UART2 with custom pins
-  HC05.begin(38400);
+  HC05.begin(38400, SERIAL_8N1, RX_PIN, TX_PIN);  // Use HardwareSerial on UART2 with custom pins
+  //HC05.begin(38400);
 
   pinMode(XPIN, INPUT);
   pinMode(YPIN, INPUT);
