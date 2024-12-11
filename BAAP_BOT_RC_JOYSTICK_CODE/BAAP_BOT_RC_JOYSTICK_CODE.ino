@@ -1,10 +1,11 @@
 //Add or related libraries
 #include<HardwareSerial.h>
+
 const int XPIN = 32;     // Joystick X-axis pin
 const int YPIN = 35;     // Joystick Y-axis pin
 //const int BUTTONPIN = 34; // Joystick button pin
-const int RX_PIN = 27;   // HC-05 RX pin
-const int TX_PIN = 14;   // HC-05 TX pin
+const int RX_PIN = 27;   // 
+const int TX_PIN = 14;   //
 
 // Use HardwareSerial on UART2 (for example)
 HardwareSerial HC05(2);  // Use UART2 for HC-05
@@ -22,7 +23,7 @@ void connectToHC05() {
 
 void setup() {
   Serial.begin(9600);   // Serial monitor baud rate
-  HC05.begin(38400, SERIAL_8N1, RX_PIN, TX_PIN);  // Use HardwareSerial on UART2 with custom pins
+   HC05.begin(38400, SERIAL_8N1, RX_PIN, TX_PIN);  // Use HardwareSerial on UART2 with custom pins
   //HC05.begin(38400);
 
   pinMode(XPIN, INPUT);
@@ -57,19 +58,19 @@ void sendMovementData(int xval, int yval) {
 
   // Send movement commands to the HC-05
   if (yval < 2460 && xval > 3500) {
-    HC05.printf("%c\n",'1'); // forward
+    HC05.printf("%c",'1'); // forward
   } else if (yval > 3200 && xval < 2500) {
-    HC05.printf("%c\n",'2'); // Backward
+    HC05.printf("%c",'2'); // Backward
   }
 
   else if (yval < 2400 && xval < 2500) {
-    HC05.printf("%c\n",'4'); // left
+    HC05.printf("%c",'4'); // left
   } else if (yval > 3400 && xval > 3500) {
-    HC05.printf("%c\n",'3'); // right
+    HC05.printf("%c",'3'); // right
   }
 
   else{
-    HC05.printf("%c\n",'5');;
+    HC05.printf("%c",'5');
   }
 
   // if (buttonState == 0) {
